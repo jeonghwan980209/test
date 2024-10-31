@@ -20,8 +20,8 @@ pipeline {
         stage('deploy and service') {
             steps {
                 sh '''
-                ansible node -m shell -a 'sudo kubectl create deploy jenkinstest1 --replicas=3 --port=80 --image=jeonghwan98/keduitlab1:yellow1'
-                ansible node -m shell -a 'sudo kubectl expose deploy jenkinstest1 --type=LoadBalancer --port=80 --target-port=80 --name=jenkinstest1'
+                ansible master -m shell -a 'sudo kubectl create deploy jenkinstest1 --replicas=3 --port=80 --image=jeonghwan98/keduitlab1:yellow1'
+                ansible master -m shell -a 'sudo kubectl expose deploy jenkinstest1 --type=LoadBalancer --port=80 --target-port=80 --name=jenkinstest1'
                 '''
             }
         }
