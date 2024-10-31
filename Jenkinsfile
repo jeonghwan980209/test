@@ -7,7 +7,7 @@ pipeline {
             }
         }
         
-        stage('docker build and push') {
+        stage('docker build&push') {
             steps {
                 sh '''
                 sudo docker build -t jeonghwan98/keduitlab1:yellow1 .
@@ -17,7 +17,7 @@ pipeline {
             }
         }
 
-        stage('deploy and service') {
+        stage('deploy&service') {
             steps {
                 sh '''
                 ansible master -m shell -a 'sudo kubectl create deploy jenkinstest1 --replicas=3 --port=80 --image=jeonghwan98/keduitlab1:yellow1'
