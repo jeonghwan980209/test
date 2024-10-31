@@ -16,7 +16,6 @@ pipeline {
             }
         }
 
-        echo "이미지 전송 끝남"
         
         stage('deploy and service') {
             steps {
@@ -28,4 +27,3 @@ pipeline {
         }
     }
 }
-echo "이미지 전송 끝남"
